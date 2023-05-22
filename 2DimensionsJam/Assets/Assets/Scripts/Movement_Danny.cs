@@ -7,6 +7,10 @@ public class Movement_Danny : MonoBehaviour
     private Rigidbody rb;
     Animator anim;
     private Vector3 moveVec;
+    public Transform groundPt;
+    public LayerMask groundLayer;
+    public bool isGrounded;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -15,6 +19,9 @@ public class Movement_Danny : MonoBehaviour
 
     private void Update()
     {
+        // Ground Check 
+        isGrounded = Physics.CheckSphere(groundPt.position, 0.5f, groundLayer);
+
         // Get input axes
         moveVec.x = Input.GetAxis("Horizontal");
         moveVec.y = Input.GetAxis("Vertical");

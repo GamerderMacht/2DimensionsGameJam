@@ -2,28 +2,77 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;          // Reference to the player's transform
-    public float smoothSpeed = 0.125f; // Camera movement smoothness
+    [Header("References")]
+    [SerializeField] Transform orientation;
+    [SerializeField] Transform player;
+    [SerializeField] Transform playerOjbect;
+    [SerializeField] Rigidbody rb;
 
-    private Vector3 offset = new Vector3(0, 4, -2.2f); 
-    [SerializeField] private float rotation = 50;          // Offset between the camera and the player
+    [SerializeField] float rotationSpeed;
+
+    [Header("Camera Style")]
+    [SerializeField] GameObject thirdPersonCamera;    
+    [SerializeField] GameObject isometricCamera;
+    
+    public CameraStyle cameraStyle;
+
+    public enum CameraStyle
+    {
+        Basic,
+        Isometric
+    }
 
     private void Start()
     {
-        // Calculate initial offset between the camera and the player
-        //offset = transform.position - target.position;
-        transform.position = offset;
-        transform.rotation = Quaternion.Euler(rotation, 0, 0);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        
-        // Calculate the desired position of the camera
-        Vector3 desiredPosition = target.position + offset;
+        // Input keys to switch between Camera Styles
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwitchCameraStyle(CameraStyle.Basic);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchCameraStyle(CameraStyle.Isometric);
+        }
 
-        // Smoothly move the camera towards the desired position
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+        // Rotate around Orientation object 
+        Vector3 viewDirection = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        orientation.forward = viewDirection.normalized;
+
+        // Rotate around Player Object
+        if (cameraStyle == CameraStyle.Basic || cameraStyle == CameraStyle.Isometric)
+        {
+            float horizonatalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+
+            Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizonatalInput;
+
+            if (inputDirection != Vector3.zero)
+            {
+                playerOjbect.forward = Vector3.Slerp(playerOjbect.forward, inputDirection.normalized, Time.deltaTime * rotationSpeed);
+            }
+        }
+    }
+
+    void SwitchCameraStyle(CameraStyle updatedStyle)
+    {
+        thirdPersonCamera.SetActive(false);
+        isometricCamera.SetActive(false);
+
+        if (updatedStyle == CameraStyle.Basic)
+        {
+            thirdPersonCamera.SetActive(true);
+        }
+        if (updatedStyle == CameraStyle.Isometric)
+        {
+            isometricCamera.SetActive(true);
+        }
+
+        cameraStyle = updatedStyle;
     }
 }

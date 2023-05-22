@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6632080672156732174}
   - component: {fileID: 5804380581324429598}
   - component: {fileID: 5191087284135081477}
+  - component: {fileID: 8843938815963597855}
   m_Layer: 0
   m_Name: Pistol_Holder
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8843938815963597855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889729740073135095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.37726313, y: 0.22907627, z: 0.043899283}
+  m_Center: {x: -0.0040568784, y: -0.06932756, z: -0.00058387127}
 --- !u!1 &2894876185035583208
 GameObject:
   m_ObjectHideFlags: 0

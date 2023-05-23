@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+/*public class PlayerMovement : MonoBehaviour
+ {
     private Rigidbody rb;
     private Vector3 PlayerMovementInput;
     private Vector2 PlayerMouseInput;
@@ -30,4 +30,4 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce);
         }
     }
-}
+}  */

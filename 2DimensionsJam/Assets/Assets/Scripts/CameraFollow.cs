@@ -7,6 +7,20 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 offset = new Vector3(0, 4, -2.2f); 
     [SerializeField] private float rotation = 50;          // Offset between the camera and the player
+    [SerializeField] float rotationSpeed;
+
+    [Header("Camera Style")]
+    [SerializeField] GameObject thirdPersonCamera;    
+    [SerializeField] GameObject isometricCamera;
+    
+    public CameraStyle cameraStyle;
+
+    public enum CameraStyle
+    {
+        Basic,
+        Isometric,
+        Hacking
+    }
 
     private void Start()
     {

@@ -2,11 +2,26 @@ using UnityEngine;
 
 public class Movement_Danny : MonoBehaviour
 {
-    public float moveSpeed = 5f;     // Player movement speed
-
-    private Rigidbody rb;
     Animator anim;
-    private Vector3 moveVec;
+    private Rigidbody rb;
+
+    [Header("Player Movement")]
+    [SerializeField] float moveSpeed;
+    float moveVertical;
+    float moveHorizontal;
+
+    [SerializeField] float newGravity;
+    //[SerializeField] float gravityMultiplier = 2f;
+
+    [Header("Ground Reference")]
+    public LayerMask groundLayer;
+    public Transform groundPt;
+    public bool isGrounded;
+
+    [Header("Camera Reference")]
+    [SerializeField] Transform cam;
+
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -15,32 +30,39 @@ public class Movement_Danny : MonoBehaviour
 
     private void Update()
     {
-        // Get input axes
-        moveVec.x = Input.GetAxis("Horizontal");
-        moveVec.y = Input.GetAxis("Vertical");
+        // Ground Check 
+        isGrounded = Physics.CheckSphere(groundPt.position, 0.5f, groundLayer);
 
-        if(moveVec.x != 0 || moveVec.y != 0){
-            anim.SetFloat("Speed", 1f);
-            MovePlayer();
-        }else{
-            //anim.SetBool("IsRunning", false);
-        }
+        moveVertical = Input.GetAxis("Vertical") * moveSpeed;
+        moveHorizontal = Input.GetAxis("Horizontal") * moveSpeed;
 
-        anim.SetFloat("Speed", moveVec.sqrMagnitude);
-        anim.SetFloat("Horizontal", moveVec.x);
-        anim.SetFloat("Vertical", moveVec.y);
-        
-        if(Input.GetKeyDown(KeyCode.G)){
+        anim.SetFloat("Speed", rb.velocity.magnitude / moveSpeed);
+        anim.SetFloat("Horizontal", moveHorizontal);
+        anim.SetFloat("Vertical", moveVertical);
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
             anim.SetTrigger("Attack");
         }
 
     }
 
-    private void MovePlayer(){
-        // Calculate movement vector
-        Vector3 movement = new Vector3(moveVec.x, 0f, moveVec.y) * moveSpeed * Time.deltaTime;
-        
-        // Apply movement to the rigidbody
-        rb.velocity = movement;
+    private void FixedUpdate()
+    {
+        // Gravity controller
+        Physics.gravity = new Vector3(0, newGravity, 0);
+
+        // Player movement 
+        rb.velocity = (cam.forward * moveVertical) + (cam.right * moveHorizontal);
+        if (moveVertical != 0)
+        {
+            transform.rotation = cam.rotation;
+            Debug.Log("I turn");
+        }
+        else
+        {
+            transform.rotation = Quaternion.identity;
+            Debug.Log("0");
+        }
     }
 }

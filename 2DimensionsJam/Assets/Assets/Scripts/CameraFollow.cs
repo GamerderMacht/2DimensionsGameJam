@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] Transform playerOjbect;
     [SerializeField] Rigidbody rb;
 
-    [SerializeField] float rotationSpeed;
+    [SerializeField] float rotationPower;
 
     [Header("Camera Style")]
     [SerializeField] GameObject thirdPersonCamera;    
@@ -50,12 +50,36 @@ public class CameraFollow : MonoBehaviour
             float horizonatalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
 
-            Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizonatalInput;
 
-            if (inputDirection != Vector3.zero)
+            playerOjbect.rotation *= Quaternion.AngleAxis(horizonatalInput * rotationPower, Vector3.up);
+
+            playerOjbect.rotation *= Quaternion.AngleAxis(verticalInput * rotationPower, Vector3.right);
+
+            var angles = playerOjbect.localEulerAngles;
+            angles.z = 0;
+
+            var angle = playerOjbect.localEulerAngles.x;
+
+            if (angle > 180 && angle < 340)
+            {
+                angles.x = 340;
+            }
+            else if (angle < 180 && angle > 40)
+            {
+                angles.x = 40;
+            }
+
+            playerOjbect.localEulerAngles = angles;
+
+            player.rotation = Quaternion.Euler(0, playerOjbect.rotation.eulerAngles.y, 0);
+
+            playerOjbect.localEulerAngles = new Vector3(angles.x, 0, 0);
+            //Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizonatalInput;
+
+            /*if (inputDirection != Vector3.zero)
             {
                 playerOjbect.forward = Vector3.Slerp(playerOjbect.forward, inputDirection.normalized, Time.deltaTime * rotationSpeed);
-            }
+            }*/
         }
     }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 public class Movement_Danny : MonoBehaviour
 {
@@ -17,9 +18,10 @@ public class Movement_Danny : MonoBehaviour
     public LayerMask groundLayer;
     public Transform groundPt;
     public bool isGrounded;
+    [SerializeField] private float rotationSpeed;
 
-    [Header("Camera Reference")]
-    [SerializeField] Transform cam;
+    [SerializeField] private Transform cam;
+    private bool canMove = true;
 
 
     private void Start()
@@ -32,9 +34,16 @@ public class Movement_Danny : MonoBehaviour
     {
         // Ground Check 
         isGrounded = Physics.CheckSphere(groundPt.position, 0.5f, groundLayer);
+        moveVertical = Input.GetAxis("Vertical"); //* moveSpeed;
+        moveHorizontal = Input.GetAxis("Horizontal"); //* moveSpeed;
 
-        moveVertical = Input.GetAxis("Vertical") * moveSpeed;
-        moveHorizontal = Input.GetAxis("Horizontal") * moveSpeed;
+        if(moveHorizontal != 0 || moveVertical != 0){
+            canMove = true;
+        }
+        else{
+            canMove = false;
+            anim.SetTrigger("Idle");
+        }
 
         anim.SetFloat("Speed", rb.velocity.magnitude / moveSpeed);
         anim.SetFloat("Horizontal", moveHorizontal);
@@ -42,14 +51,27 @@ public class Movement_Danny : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            anim.SetTrigger("Attack");
+            anim.SetTrigger("Melee");
         }
 
     }
 
     private void FixedUpdate()
     {
-        // Gravity controller
+
+        //Danny's Script=>
+        if(canMove){
+            anim.SetTrigger("Run");
+            Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
+            rb.position += movement * moveSpeed * Time.deltaTime;
+            //just implement proper rotation and done
+        }
+        
+
+     
+     //Buggy Script
+     /*
+       // Gravity controller
         Physics.gravity = new Vector3(0, newGravity, 0);
 
         // Player movement 
@@ -63,6 +85,6 @@ public class Movement_Danny : MonoBehaviour
         {
             transform.rotation = Quaternion.identity;
             Debug.Log("0");
-        }
+        } */
     }
 }

@@ -44,6 +44,8 @@ private void Update(){
 
     public static void SwitchPerspectives(){
         hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
+        hackedRobot.GetComponent<Movement_Danny>().enabled = true;
+        hackedRobot.GetComponent<Animator>().enabled = true;
     }
 
     private void OnDrawGizmos()

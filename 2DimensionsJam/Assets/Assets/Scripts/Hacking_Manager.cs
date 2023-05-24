@@ -12,6 +12,7 @@ public class Hacking_Manager : MonoBehaviour
     public GameObject[] buttonAnswers;
     HackingPromptSO selectedPrompt;
     int answerIndex;
+    public bool isAnswerCorrect {get; private set;}
 
     void Start()
     {
@@ -33,17 +34,25 @@ public class Hacking_Manager : MonoBehaviour
 
     public void OnOptionButtonClicked(int answerIndex)
     {
-        Debug.Log(answerIndex);
+        //Debug.Log(answerIndex);
         if (answerIndex == selectedPrompt.GetCorrectAnswerIndex())
         {
-            Debug.Log("Correct");
+            //Debug.Log("Correct");
             hackingPromptText.text = "Correct";
+            IsoCamera.SwitchPerspectives();
+            StartCoroutine(HideHackingUI());
         }
         else if (answerIndex != selectedPrompt.correctAnswerIndex)
         {
-            Debug.Log("Incorrect");
+            //Debug.Log("Incorrect");
             hackingPromptText.text = "Incorrect";
+            isAnswerCorrect = false;
         }
+    }
+
+    private IEnumerator HideHackingUI(){
+        yield return new WaitForSeconds(2f);
+        GameObject.Find("Hacking Canvas").SetActive(false);
     }
 
 }

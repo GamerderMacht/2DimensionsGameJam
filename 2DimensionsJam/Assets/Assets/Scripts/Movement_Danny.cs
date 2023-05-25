@@ -39,8 +39,7 @@ public class Movement_Danny : MonoBehaviour
 
         if(moveHorizontal != 0 || moveVertical != 0){
             canMove = true;
-        }
-        else{
+        }else{
             canMove = false;
         }
 
@@ -62,6 +61,9 @@ public class Movement_Danny : MonoBehaviour
             //just implement proper rotation and done
         }else{
             anim.SetBool("Run", false);
+        }
+        else{
+           anim.SetBool("Run", false);
         }
         
 

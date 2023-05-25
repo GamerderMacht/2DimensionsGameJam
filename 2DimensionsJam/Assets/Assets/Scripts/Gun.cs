@@ -42,7 +42,7 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        UpdateAmmoText();
+        //UpdateAmmoText();
 
         /*if (menuInterface.isPaused)
         {
@@ -66,7 +66,7 @@ public class Gun : MonoBehaviour
     {
         currentAmmo--;
         muzzleFlash.Play();
-        gunAudioSource.Play();
+        if(gunAudioSource)gunAudioSource.Play();
         RaycastHit hit;
         if (Physics.Raycast(gunObject.transform.position, gunObject.transform.forward, out hit, range))
         {
@@ -80,7 +80,7 @@ public class Gun : MonoBehaviour
 
     public void UpdateAmmoText()
     {
-        ammoText.text = $"{currentAmmo} | {reserveAmmo}";
+        //ammoText.text = $"{currentAmmo} | {reserveAmmo}";
     }
 
     private void OnDrawGizmos()

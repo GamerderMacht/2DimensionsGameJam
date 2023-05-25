@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Wall
   - PlayerEyes
+  - Weapon
+  - ArmSlot
+  - Pistol
   layers:
   - Default
   - TransparentFX

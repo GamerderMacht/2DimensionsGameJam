@@ -39,15 +39,9 @@ public class Movement_Danny : MonoBehaviour
 
         if(moveHorizontal != 0 || moveVertical != 0){
             canMove = true;
-        }
-        else{
+        }else{
             canMove = false;
-            anim.SetTrigger("Idle");
         }
-
-        anim.SetFloat("Speed", rb.velocity.magnitude / moveSpeed);
-        anim.SetFloat("Horizontal", moveHorizontal);
-        anim.SetFloat("Vertical", moveVertical);
 
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -61,10 +55,13 @@ public class Movement_Danny : MonoBehaviour
 
         //Danny's Script=>
         if(canMove){
-            anim.SetTrigger("Run");
+            anim.SetBool("Run", true);
             Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
             rb.position += movement * moveSpeed * Time.deltaTime;
             //just implement proper rotation and done
+        }
+        else{
+           anim.SetBool("Run", false);
         }
         
 

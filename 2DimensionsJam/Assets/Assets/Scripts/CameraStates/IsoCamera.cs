@@ -11,8 +11,8 @@ public class IsoCamera : MonoBehaviour
     private static GameObject hackedRobot;
     private Animator anim;
     private void Start() {
-        hackingCanvas = GameObject.Find("Hacking Canvas");
-        hackingCanvas.SetActive(false);
+        //hackingCanvas = GameObject.Find("Hacking Canvas");
+        //hackingCanvas.SetActive(false);
         anim = GetComponent<Animator>();
     }
 

@@ -27,7 +27,7 @@ public class Movement_Danny : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInParent<Rigidbody>();
     }
 
     private void Update()
@@ -55,7 +55,7 @@ public class Movement_Danny : MonoBehaviour
 
         //Danny's Script=>
         if(canMove){
-            anim.SetBool("Run", true);
+            anim.SetFloat("Blend", 0.5f);
             Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
             rb.position += movement * moveSpeed * Time.deltaTime;
             //just implement proper rotation and done

@@ -59,11 +59,11 @@ public class Movement_Danny : MonoBehaviour
             Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
             rb.position += movement * moveSpeed * Time.deltaTime;
             //just implement proper rotation and done
-        }else{
+        /*}else{
             anim.SetBool("Run", false);
         }
         else{
-           anim.SetBool("Run", false);
+           anim.SetBool("Run", false); */
         }
         
 

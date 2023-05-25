@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     private Animator anim;
     [SerializeField] private Transform serverPos;
     [SerializeField] private float maxDistanceToPlayer;
-    private NavMeshAgent agent;
+    //private NavMeshAgent agent;
     [SerializeField] private float enemySpeed;
 
     private void Awake() {
@@ -32,14 +32,14 @@ public class Movement : MonoBehaviour
     private void GetRefrences(){
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+       // agent = GetComponent<NavMeshAgent>();
     }
 
     private void MoveTowardTarget(Transform targetPos){
         // I am going to apply root motion to the object so no need for coded movement
-        anim.SetBool("Run", true);
-        agent.SetDestination(targetPos.position);
-        agent.speed = enemySpeed;
+        anim.SetFloat("Blend", 0.5f);
+       // agent.SetDestination(targetPos.position);
+        //agent.speed = enemySpeed;
     }
 
 

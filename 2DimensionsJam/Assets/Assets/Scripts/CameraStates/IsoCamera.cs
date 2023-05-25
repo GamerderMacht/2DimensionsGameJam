@@ -5,7 +5,6 @@ using Cinemachine;
 
 public class IsoCamera : MonoBehaviour
 {
-    [SerializeField] private float sphereSize;
     [SerializeField] private float maxDistance;
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject hackingCanvas;

@@ -2296,6 +2296,8 @@ MonoBehaviour:
   - {fileID: 2144167591}
   - {fileID: 2138134054}
   - {fileID: 2096443852}
+  slider: {fileID: 0}
+  nextQuestionDelay: 3
 --- !u!4 &1920923895
 Transform:
   m_ObjectHideFlags: 0
@@ -2763,11 +2765,6 @@ PrefabInstance:
       propertyPath: groundPt
       value: 
       objectReference: {fileID: 371352529}
-    - target: {fileID: 58623862511450276, guid: 9418e53b55cdef3419a61c6a02546d8d,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 530016739884644828, guid: 9418e53b55cdef3419a61c6a02546d8d,
         type: 3}
       propertyPath: m_RootOrder

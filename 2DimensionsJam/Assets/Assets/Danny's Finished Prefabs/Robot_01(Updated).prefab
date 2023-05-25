@@ -172,6 +172,7 @@ MonoBehaviour:
     m_Bits: 64
   groundPt: {fileID: 0}
   isGrounded: 0
+  rotationSpeed: 90
   cam: {fileID: 2479129434620578447}
 --- !u!1 &1140895645419438141
 GameObject:

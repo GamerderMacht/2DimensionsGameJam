@@ -13,21 +13,14 @@ public class Hacking_Manager : MonoBehaviour
     public Slider slider;
     HackingPromptSO selectedPrompt;
     int answerIndex;
-<<<<<<< HEAD:2DimensionsJam/Assets/Assets/Scripts/Hacking_Manager.cs
     public bool isAnswerCorrect {get; private set;}
-=======
     public int nextQuestionDelay = 3;
     int gotCorrect;
     int gotIncorrect;
->>>>>>> Andrew:2DimensionsJam/Assets/Scripts/Hacking_Manager.cs
 
     void Start()
     {
         HackingMiniGame();
-    }
-    void Update() 
-    {
-        
     }
 
     public void HackingMiniGame()
@@ -49,7 +42,6 @@ public class Hacking_Manager : MonoBehaviour
 
     public void OnOptionButtonClicked(int answerIndex)
     {
-<<<<<<< HEAD:2DimensionsJam/Assets/Assets/Scripts/Hacking_Manager.cs
         //Debug.Log(answerIndex);
         if (answerIndex == selectedPrompt.GetCorrectAnswerIndex())
         {
@@ -63,7 +55,7 @@ public class Hacking_Manager : MonoBehaviour
             //Debug.Log("Incorrect");
             hackingPromptText.text = "Incorrect";
             isAnswerCorrect = false;
-=======
+        }
 
         //Debug.Log(answerIndex);
         if (answerIndex == selectedPrompt.GetCorrectAnswerIndex())
@@ -108,7 +100,6 @@ public class Hacking_Manager : MonoBehaviour
         foreach (var button in buttonAnswers)
         {
             button.interactable = true;
->>>>>>> Andrew:2DimensionsJam/Assets/Scripts/Hacking_Manager.cs
         }
     }
 

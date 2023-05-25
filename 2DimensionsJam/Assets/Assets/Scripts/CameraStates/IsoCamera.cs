@@ -10,9 +10,11 @@ public class IsoCamera : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject hackingCanvas;
     private static GameObject hackedRobot;
+    private Animator anim;
     private void Start() {
         hackingCanvas = GameObject.Find("Hacking Canvas");
         hackingCanvas.SetActive(false);
+        anim = GetComponent<Animator>();
     }
 
 private void Update(){
@@ -45,7 +47,7 @@ private void Update(){
     public static void SwitchPerspectives(){
         hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
         hackedRobot.GetComponent<Movement_Danny>().enabled = true;
-        hackedRobot.GetComponent<Animator>().enabled = true;
+        hackedRobot.GetComponent<Movement>().enabled = false;
     }
 
     private void OnDrawGizmos()

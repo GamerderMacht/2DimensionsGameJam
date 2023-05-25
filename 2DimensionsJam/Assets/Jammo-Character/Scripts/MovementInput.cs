@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 //This script requires you to have setup your animator with 3 parameters, "InputMagnitude", "InputX", "InputZ"
 //With a blend tree to control the inputmagnitude and allow blending between animations.
 [RequireComponent(typeof(CharacterController))]
@@ -19,7 +19,7 @@ public class MovementInput : MonoBehaviour {
 	public Animator anim;
 	public float Speed;
 	public float allowPlayerRotation = 0.1f;
-	public Camera cam;
+	public CinemachineVirtualCamera cam;
 	public CharacterController controller;
 	public bool isGrounded;
 
@@ -39,7 +39,6 @@ public class MovementInput : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = this.GetComponent<Animator> ();
-		cam = Camera.main;
 		controller = this.GetComponent<CharacterController> ();
 	}
 	

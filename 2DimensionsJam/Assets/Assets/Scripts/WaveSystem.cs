@@ -33,15 +33,21 @@ public class WaveSystem : MonoBehaviour
                 enemy = Instantiate(currentWave.GetEnemyPrefab(0), randomSpawnPoint.position, Quaternion.identity);
                 Debug.Log("Enemy Alive");
                 alivelist.Add(enemy);
-                if (wave == null && currentWave.GetEnemyCount() < finalWaveCount)
-                {
-                    Debug.Log("No more waves");
-                    i++;
-                    Debug.Log("Infinite wave incoming");
-                    
-                }
-
                 yield return new WaitForSeconds(wave.GetSpawnTime());
+            }
+            if (wave == null && currentWave.GetEnemyCount() < finalWaveCount)
+            {
+                Debug.Log("No more waves");
+                for (int j = 0; j < currentWave.GetEnemyCount(); j++)
+                {
+                    var randomSpawnPoint = SpawnPoints[Random.Range(0, SpawnPoints.Length - 1)];
+                    GameObject enemy;
+                    enemy = Instantiate(currentWave.GetEnemyPrefab(0), randomSpawnPoint.position, Quaternion.identity);
+                    Debug.Log("Enemy Alive");
+                    alivelist.Add(enemy);
+                    yield return new WaitForSeconds(wave.GetSpawnTime());
+                }
+                Debug.Log("Infinite wave incoming");
             }
             while (alivelist.Count > 0)
             {

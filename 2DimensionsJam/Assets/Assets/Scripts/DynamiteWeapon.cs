@@ -14,7 +14,8 @@ public class DynamiteWeapon : MonoBehaviour
 
     private void Update()
     {
-        Explode();
+        // Throw function 
+        //Explode();
     }
 
     void Explode()

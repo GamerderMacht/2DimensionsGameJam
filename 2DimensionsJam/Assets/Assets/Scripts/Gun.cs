@@ -19,9 +19,9 @@ public class Gun : MonoBehaviour
     [SerializeField] bool isReloading = false;
 
     [Header("Ammo Info")]
-    [SerializeField] int currentAmmo = 30;
-    [SerializeField] int maxClipAmmo = 30;
-    [SerializeField] int reserveAmmo = 90;
+    [SerializeField] int currentAmmo = 6;
+    [SerializeField] int maxClipAmmo = 6;
+    [SerializeField] int reserveAmmo = 0;
 
     [Header("Ammo UI")]
     [SerializeField] TextMeshProUGUI ammoText;
@@ -29,6 +29,7 @@ public class Gun : MonoBehaviour
 
     [Header("Gun Reference")]
     public GameObject gunObject;
+    public WeaponPickup weaponPickup;
 
     //[Header("Shooting Check")]
     //public MenuInterface menuInterface;
@@ -48,19 +49,15 @@ public class Gun : MonoBehaviour
             return;
         }*/
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (reserveAmmo <= 0)
-            {
-                return;
-            }
-            StartCoroutine(Reload());
-            return;
-        }
-
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !isReloading)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
+            if (currentAmmo <= 0)
+            {
+                weaponPickup.DropWeapon();
+                Debug.Log("I have dropped weapon");
+                return;
+            }
             Shoot();
         }
     }
@@ -78,39 +75,6 @@ public class Gun : MonoBehaviour
             {
                 aitarget.TakingDamage(damage);
             }*/
-        }
-    }
-
-    IEnumerator Reload()
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(reloadTime);
-        int remainder = maxClipAmmo - currentAmmo;
-        int reloadAmount = 0;
-        if (currentAmmo - remainder >= 0)
-        {
-            reloadAmount = remainder;
-        }
-        else if (reserveAmmo >= maxClipAmmo)
-        {
-            reloadAmount = maxClipAmmo;
-        }
-        else
-        {
-            reloadAmount = reserveAmmo;
-        }
-        currentAmmo += reloadAmount;
-        reserveAmmo -= reloadAmount;
-        isReloading = false;
-    }
-
-    public void AddAmmo(int ammoAmount)
-    {
-        currentAmmo += ammoAmount;
-
-        if (currentAmmo > maxClipAmmo)
-        {
-            currentAmmo = maxClipAmmo;
         }
     }
 

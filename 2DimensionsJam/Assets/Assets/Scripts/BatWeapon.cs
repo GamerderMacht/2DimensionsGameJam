@@ -6,15 +6,21 @@ public class BatWeapon : MonoBehaviour
 {
     public float collisionRadius;
     private CapsuleCollider capsuleCollider;
+    WeaponPickup weapon;
+
+    [SerializeField] float nextTimeToSwing = 0.5f;
 
     private void Start()
     {
-        collisionRadius = capsuleCollider.radius;  
+        //collisionRadius = capsuleCollider.radius;  
     }
 
     private void Update()
     {
-        Damage();
+        if (Input.GetButton("Fire1") && weapon.isHolding && Time.time >= nextTimeToSwing)
+        {
+            //Damage();
+        }
     }
 
     void Damage()

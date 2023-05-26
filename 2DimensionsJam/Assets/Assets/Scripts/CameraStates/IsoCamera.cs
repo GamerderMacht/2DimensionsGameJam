@@ -24,20 +24,19 @@ private void Update(){
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hit))
-        {
-            // The ray has hit an object
-            Debug.Log("Hit object: " + hit.collider.gameObject.name);
-            
+        {   
             // The layer is on the robot layer
                 if(hit.collider.gameObject.layer == 8){
+                    Debug.Log("The robot has been hit!");
                     hackedRobot = hit.collider.gameObject;
                 //  begin hacking sequence, then if hack was successful, then set the robot to a player and zoom camera
+
                 // 1. Begin Hacking Sequence
                 // 2. If correct switch robot from an enemy to a player
                 // 3. Set robot priority camera to the highest in the scene(this makes it so that the cinemachine camera transition occurs)
-                hackingCanvas.SetActive(true);
-                //hit.collider.gameObject.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
-                // We slowly move toward that new Camera position and rotation
+                
+                //hackingCanvas.SetActive(true);
+                //SwitchPerspectives();
                 }
         }
     }
@@ -46,7 +45,8 @@ private void Update(){
     public static void SwitchPerspectives(){
         hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
         hackedRobot.GetComponent<Movement_Danny>().enabled = true;
-        hackedRobot.GetComponent<Movement>().enabled = false;
+        //hackedRobot.GetComponent<Movement>().enabled = false;
+        hackedRobot.GetComponent<EnemyAI>().enabled = false;
     }
 
     private void OnDrawGizmos()

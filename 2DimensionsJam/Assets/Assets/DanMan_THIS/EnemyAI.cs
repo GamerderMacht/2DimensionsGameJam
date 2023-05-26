@@ -29,10 +29,17 @@ public class EnemyAI : MonoBehaviour
         anim.SetFloat("Blend", 0.35f);
 
         if(!seesPlayer){
+            if(GameObject.Find("Server") == null) return;
             agent.SetDestination(GameObject.Find("Server").transform.position);
         }
 
         if(Vector3.Distance(transform.position, serverPos) <= attackDistance){
+            anim.SetFloat("Blend", 0f);
+            agent.isStopped = true;
+            anim.SetTrigger("Melee");
+        }
+
+        if(FindAnyObjectByType<Movement_Danny>() != null && Vector3.Distance(transform.position, serverPos) <= attackDistance){
             anim.SetFloat("Blend", 0f);
             agent.isStopped = true;
             anim.SetTrigger("Melee");

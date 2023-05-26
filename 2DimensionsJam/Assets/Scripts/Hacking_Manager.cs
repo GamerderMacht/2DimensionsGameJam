@@ -9,9 +9,11 @@ public class Hacking_Manager : MonoBehaviour
 {
     public List<HackingPromptSO> hackingPrompts;
     public TextMeshProUGUI hackingPromptText;
+    public TextMeshProUGUI amountWrongText;
     public Button[] buttonAnswers;
     public Slider slider;
     HackingPromptSO selectedPrompt;
+    TimerScript timerScript;
     int answerIndex;
     public int nextQuestionDelay = 3;
     int gotCorrect;
@@ -19,6 +21,7 @@ public class Hacking_Manager : MonoBehaviour
 
     void Start()
     {
+        timerScript = FindAnyObjectByType<TimerScript>();
         HackingMiniGame();
     }
     void Update() 
@@ -28,6 +31,10 @@ public class Hacking_Manager : MonoBehaviour
 
     public void HackingMiniGame()
     {
+        timerScript.timeRanOut = false;
+        timerScript.timerCount = 11;
+        timerScript.answeringPhase = true;
+        
         // Select a random hacking prompt from the list
         selectedPrompt = hackingPrompts[Random.Range(0, hackingPrompts.Count)];
 
@@ -46,30 +53,55 @@ public class Hacking_Manager : MonoBehaviour
     public void OnOptionButtonClicked(int answerIndex)
     {
 
-        //Debug.Log(answerIndex);
         if (answerIndex == selectedPrompt.GetCorrectAnswerIndex())
         {
-            hackingPromptText.text = "Correct";
-            gotCorrect += 1;
-            ProgressBar();
-            Debug.Log(gotCorrect + "Correct");
+            AnswerCorrect();
         }
         else if (answerIndex != selectedPrompt.correctAnswerIndex)
         {
-            hackingPromptText.text = "Incorrect";
-            gotIncorrect += 1;
-            Debug.Log(gotIncorrect + "Incorrect");
+            AnswerWrong();
         }
-
-        Invoke("HackingMiniGame", nextQuestionDelay);
 
     }
 
+    public void AnswerCorrect()
+    {
+        timerScript.answeringPhase = false;
+        hackingPromptText.text = "Correct";
+        gotCorrect += 1;
+        ProgressBar();
+        Invoke("HackingMiniGame", nextQuestionDelay);   
+    }
+
+    public void AnswerWrong()
+    {
+        timerScript.answeringPhase = false;
+        hackingPromptText.text = "Incorrect";
+        gotIncorrect += 1;
+        Debug.Log(gotIncorrect);
+        Invoke("HackingMiniGame", nextQuestionDelay);
+
+        if (gotIncorrect == 1)
+        {
+            amountWrongText.text = "X";
+        }
+
+        if (gotIncorrect == 2)
+        {
+            amountWrongText.text = "X X";
+        }
+        
+        if (gotIncorrect == 3)
+        {
+            amountWrongText.text = "X X X";
+        }
+    }
     public void ProgressBar()
     {
         slider.value = gotCorrect;
         if (slider.value == slider.maxValue)
         {
+            amountWrongText.text = "";
             slider.value = 0;
             gotCorrect = 0;
             //Insert Function() that transitions player from hacking to robot

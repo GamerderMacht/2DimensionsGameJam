@@ -3,18 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - PlayerEyes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
+  - Ground
   - 
   - Player
-  - 
-  - 
+  - PostProcessing
   - 
   - 
   - 

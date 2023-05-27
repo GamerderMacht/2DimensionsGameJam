@@ -9,22 +9,37 @@ public class Hacking_Manager : MonoBehaviour
 {
     public List<HackingPromptSO> hackingPrompts;
     public TextMeshProUGUI hackingPromptText;
+
     public Button[] buttonAnswers;
     public Slider slider;
     HackingPromptSO selectedPrompt;
+    TimerScript timerScript;
+    AudioSource audioSource;
+    public AudioClip wrongClip;
+    public AudioClip rightClip;
     int answerIndex;
-    public bool isAnswerCorrect {get; private set;}
     public int nextQuestionDelay = 3;
     int gotCorrect;
     int gotIncorrect;
 
     void Start()
     {
+
+        audioSource = this.GetComponent<AudioSource>();
+        timerScript = FindAnyObjectByType<TimerScript>();
         HackingMiniGame();
+    }
+    void Update() 
+    {
+        
     }
 
     public void HackingMiniGame()
     {
+        timerScript.timeRanOut = false;
+        timerScript.timerCount = 11;
+        timerScript.answeringPhase = true;
+        
         // Select a random hacking prompt from the list
         selectedPrompt = hackingPrompts[Random.Range(0, hackingPrompts.Count)];
 
@@ -42,38 +57,52 @@ public class Hacking_Manager : MonoBehaviour
 
     public void OnOptionButtonClicked(int answerIndex)
     {
-        //Debug.Log(answerIndex);
+
         if (answerIndex == selectedPrompt.GetCorrectAnswerIndex())
         {
-            //Debug.Log("Correct");
-            hackingPromptText.text = "Correct";
-            IsoCamera.SwitchPerspectives();
-            StartCoroutine(HideHackingUI());
+            AnswerCorrect();
         }
         else if (answerIndex != selectedPrompt.correctAnswerIndex)
         {
-            //Debug.Log("Incorrect");
-            hackingPromptText.text = "Incorrect";
-            isAnswerCorrect = false;
+            AnswerWrong();
         }
 
-        //Debug.Log(answerIndex);
-        if (answerIndex == selectedPrompt.GetCorrectAnswerIndex())
-        {
-            hackingPromptText.text = "Correct";
-            gotCorrect += 1;
-            ProgressBar();
-            Debug.Log(gotCorrect + "Correct");
-        }
-        else if (answerIndex != selectedPrompt.correctAnswerIndex)
-        {
-            hackingPromptText.text = "Incorrect";
-            gotIncorrect += 1;
-            Debug.Log(gotIncorrect + "Incorrect");
-        }
+    }
 
+    public void AnswerCorrect()
+    {
+        timerScript.answeringPhase = false;
+        hackingPromptText.text = "Correct";
+        gotCorrect += 1;
+        ProgressBar();
+        audioSource.PlayOneShot(rightClip);
+        Invoke("HackingMiniGame", nextQuestionDelay);
+    }
+
+    public void AnswerWrong()
+    {
+        timerScript.answeringPhase = false;
+        hackingPromptText.text = "Incorrect";
+        gotIncorrect += 1;
+        Debug.Log(gotIncorrect);
+        audioSource.PlayOneShot(wrongClip);
         Invoke("HackingMiniGame", nextQuestionDelay);
 
+        if (gotIncorrect == 1)
+        {
+            amountWrongText.text = "X";
+        }
+
+
+        if (gotIncorrect == 2)
+        {
+            amountWrongText.text = "X X";
+        }
+        
+        if (gotIncorrect == 3)
+        {
+            amountWrongText.text = "X X X";
+        }
     }
 
     public void ProgressBar()
@@ -81,6 +110,7 @@ public class Hacking_Manager : MonoBehaviour
         slider.value = gotCorrect;
         if (slider.value == slider.maxValue)
         {
+            amountWrongText.text = "";
             slider.value = 0;
             gotCorrect = 0;
             //Insert Function() that transitions player from hacking to robot
@@ -93,6 +123,9 @@ public class Hacking_Manager : MonoBehaviour
             button.interactable = false;
         }
         Invoke("EnableButtons", nextQuestionDelay);
+
+
+   
     }
 
     public void EnableButtons()
@@ -101,11 +134,6 @@ public class Hacking_Manager : MonoBehaviour
         {
             button.interactable = true;
         }
-    }
-
-    private IEnumerator HideHackingUI(){
-        yield return new WaitForSeconds(2f);
-        GameObject.Find("Hacking Canvas").SetActive(false);
     }
 
 }

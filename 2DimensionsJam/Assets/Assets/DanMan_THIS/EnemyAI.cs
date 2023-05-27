@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponentInParent<NavMeshAgent>();
         anim = GetComponentInParent<Animator>();
         serverPos = GameObject.Find("Server").transform.position;
+        AIStandby();
     }
 
 
@@ -26,11 +27,13 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void Update() {
-        anim.SetFloat("Blend", 0.35f);
+        
+            
 
         if(!seesPlayer){
             if(GameObject.Find("Server") == null) return;
-            agent.SetDestination(GameObject.Find("Server").transform.position);
+            if(agent.enabled == true) agent.SetDestination(GameObject.Find("Server").transform.position);
+            
         }
 
         if(Vector3.Distance(transform.position, serverPos) <= attackDistance){
@@ -43,6 +46,18 @@ public class EnemyAI : MonoBehaviour
             anim.SetFloat("Blend", 0f);
             agent.isStopped = true;
             anim.SetTrigger("Melee");
+        }
+    }
+
+    public void AIStandby()
+    {
+        if(!agent.enabled)
+        {
+            anim.SetFloat("Blend", 0f);
+        }
+        else
+        {
+            anim.SetFloat("Blend", 0.35f);
         }
     }
 }

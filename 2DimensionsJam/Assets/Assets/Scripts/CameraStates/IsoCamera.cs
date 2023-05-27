@@ -63,12 +63,11 @@ private void Update(){
     }
 }
 
-    public void SwitchPerspectives(){
+    public static void SwitchPerspectives(){
         hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
         hackedRobot.GetComponent<Movement_Danny>().enabled = true;
         //hackedRobot.GetComponent<Movement>().enabled = false;
-        hackedRobot.GetComponentInChildren<EnemyAI>().enabled = false;
-    hackingCanvas.GetComponent<CanvasGroup>().alpha = 0;
+        hackedRobot.GetComponent<EnemyAI>().enabled = false;
     }
 
     private void OnDrawGizmos()

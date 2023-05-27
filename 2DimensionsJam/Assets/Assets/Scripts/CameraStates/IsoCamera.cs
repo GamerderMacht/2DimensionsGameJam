@@ -68,7 +68,7 @@ private void Update(){
         hackedRobot.GetComponent<Movement_Danny>().enabled = true;
         //hackedRobot.GetComponent<Movement>().enabled = false;
         hackedRobot.GetComponentInChildren<EnemyAI>().enabled = false;
-        FindObjectOfType<Hacking_Manager>().gameObject.SetActive(false);
+    hackingCanvas.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     private void OnDrawGizmos()

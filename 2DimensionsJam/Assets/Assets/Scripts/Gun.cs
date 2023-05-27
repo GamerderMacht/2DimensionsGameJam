@@ -38,6 +38,9 @@ public class Gun : MonoBehaviour
     {
         currentAmmo = maxClipAmmo;
         UpdateAmmoText();
+        weaponPickup = GetComponent<WeaponPickup>();
+        gunAudioSource = GetComponentInChildren<AudioSource>();
+        muzzleFlash = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -49,7 +52,7 @@ public class Gun : MonoBehaviour
             return;
         }*/
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !isReloading)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             if (currentAmmo <= 0)

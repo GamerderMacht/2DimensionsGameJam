@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Cinemachine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;          // Reference to the player's transform
@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float rotationSpeed;
 
     [Header("Camera Style")]
-    [SerializeField] GameObject thirdPersonCamera;    
+    [SerializeField] CinemachineVirtualCamera thirdPersonCamera;    
     [SerializeField] GameObject isometricCamera;
     
     public CameraStyle cameraStyle;
@@ -32,12 +32,16 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        if(target == null) return;
         // Calculate the desired position of the camera
         Vector3 desiredPosition = target.position + offset;
 
         // Smoothly move the camera towards the desired position
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
+    }
+
+    public void CameraAssigned(GameObject _target){
+        target = _target.transform;
     }
 }

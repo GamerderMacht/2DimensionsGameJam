@@ -115,6 +115,7 @@ public class Hacking_Manager : MonoBehaviour
             slider.value = 0;
             gotCorrect = 0;
             //Insert Function() that transitions player from hacking to robot
+            FindObjectOfType<IsoCamera>().SwitchPerspectives();
         }
     }
     public void DisableButtonsForSeconds()

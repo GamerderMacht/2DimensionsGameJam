@@ -9,8 +9,12 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private Transform explosionLocation;
 
+    private void Awake() {
+        currentHealth = TotalHealth;
+    }
+
     public void TakeDamage(int amount){
-        Debug.Log("Object is taking damage");
+        Debug.Log("Object is taking damage" + currentHealth + " health left");
         currentHealth -= amount;
         if(currentHealth <= 0){
             Die();

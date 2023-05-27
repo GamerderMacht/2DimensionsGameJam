@@ -14,6 +14,9 @@ public class Hacking_Manager : MonoBehaviour
     public Slider slider;
     HackingPromptSO selectedPrompt;
     TimerScript timerScript;
+    AudioSource audioSource;
+    public AudioClip wrongClip;
+    public AudioClip rightClip;
     int answerIndex;
     public int nextQuestionDelay = 3;
     int gotCorrect;
@@ -21,6 +24,7 @@ public class Hacking_Manager : MonoBehaviour
 
     void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         timerScript = FindAnyObjectByType<TimerScript>();
         HackingMiniGame();
     }
@@ -70,7 +74,8 @@ public class Hacking_Manager : MonoBehaviour
         hackingPromptText.text = "Correct";
         gotCorrect += 1;
         ProgressBar();
-        Invoke("HackingMiniGame", nextQuestionDelay);   
+        audioSource.PlayOneShot(rightClip);
+        Invoke("HackingMiniGame", nextQuestionDelay);
     }
 
     public void AnswerWrong()
@@ -79,6 +84,7 @@ public class Hacking_Manager : MonoBehaviour
         hackingPromptText.text = "Incorrect";
         gotIncorrect += 1;
         Debug.Log(gotIncorrect);
+        audioSource.PlayOneShot(wrongClip);
         Invoke("HackingMiniGame", nextQuestionDelay);
 
         if (gotIncorrect == 1)

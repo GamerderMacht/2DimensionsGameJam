@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1dd3d67fd833b4faac4520aaf96308, type: 3}
   m_Name: Hacking Prompt 1
   m_EditorClassIdentifier: 
-  hackingPrompt: This is test to see if this works! The correct answer is Hackathon.
+  hackingPrompt: Are you human?
   answers:
-  - Wires
-  - Tires
-  - Ethernet
-  - Hackathon
-  correctAnswerIndex: 3
+  - ReCaptcha?
+  - Yes
+  - bzz Yes zzz
+  - No
+  correctAnswerIndex: 1

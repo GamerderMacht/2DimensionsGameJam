@@ -7,6 +7,7 @@ using TMPro;
 
 public class Hacking_Manager : MonoBehaviour
 {
+    [SerializeField] GameObject hackingCanvas;
     public List<HackingPromptSO> hackingPrompts;
     public TextMeshProUGUI hackingPromptText;
     public TextMeshProUGUI amountWrongText;
@@ -19,7 +20,7 @@ public class Hacking_Manager : MonoBehaviour
     public AudioClip wrongClip;
     public AudioClip rightClip;
     int answerIndex;
-    public int nextQuestionDelay = 3;
+    public int nextQuestionDelay = 2;
     int gotCorrect;
     int gotIncorrect;
 
@@ -102,8 +103,26 @@ public class Hacking_Manager : MonoBehaviour
         
         if (gotIncorrect == 3)
         {
-            amountWrongText.text = "X X X";
+            amountWrongText.text = "X X X";            
+            CloseFailedHacking();
         }
+    }
+    public void CloseFailedHacking()
+    {
+        hackingPromptText.text = "HACK FAILED HACK FAILED HACK FAILED HACK FAILED HACK FAILED";
+        audioSource.PlayOneShot(wrongClip);
+        
+
+
+    }
+    public void CloseSuccessedHacking()
+    {
+        
+        //Insert successful hacking (overtaking body)
+        hackingCanvas.GetComponent<CanvasGroup>().alpha = 0;
+        hackingCanvas.GetComponent<CanvasGroup>().interactable = false;
+        hackingCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        IsoCamera.SwitchPerspectives();
     }
 
     public void ProgressBar()
@@ -115,6 +134,9 @@ public class Hacking_Manager : MonoBehaviour
             slider.value = 0;
             gotCorrect = 0;
             //Insert Function() that transitions player from hacking to robot
+            hackingPromptText.text = "HACK INIZIALIZED! OVERTAKING BODY! HACK INIZIALIZED! OVERTAKING BODY!";
+            
+            Invoke("CloseSuccessedHacking", 2f);
         }
     }
     public void DisableButtonsForSeconds()
@@ -124,9 +146,6 @@ public class Hacking_Manager : MonoBehaviour
             button.interactable = false;
         }
         Invoke("EnableButtons", nextQuestionDelay);
-
-
-   
     }
 
     public void EnableButtons()

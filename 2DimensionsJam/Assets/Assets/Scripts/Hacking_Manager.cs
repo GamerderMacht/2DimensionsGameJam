@@ -28,7 +28,7 @@ public class Hacking_Manager : MonoBehaviour
 
         audioSource = this.GetComponent<AudioSource>();
         timerScript = FindAnyObjectByType<TimerScript>();
-        HackingMiniGame();
+        
     }
     void Update() 
     {

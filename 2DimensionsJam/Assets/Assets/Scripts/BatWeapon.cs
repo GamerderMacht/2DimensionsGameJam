@@ -5,21 +5,21 @@ using UnityEngine;
 public class BatWeapon : MonoBehaviour
 {
     public float collisionRadius;
-    private CapsuleCollider capsuleCollider;
-    WeaponPickup weapon;
+    public WeaponPickup weapon;
 
     [SerializeField] float nextTimeToSwing = 0.5f;
 
     private void Start()
     {
-        //collisionRadius = capsuleCollider.radius;  
+        weapon = GetComponent<WeaponPickup>();
     }
 
     private void Update()
     {
         if (Input.GetButton("Fire1") && weapon.isHolding && Time.time >= nextTimeToSwing)
         {
-            //Damage();
+            // Swing Animation
+            Damage();
         }
     }
 

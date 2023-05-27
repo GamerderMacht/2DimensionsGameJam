@@ -38,18 +38,21 @@ public class Gun : MonoBehaviour
     {
         currentAmmo = maxClipAmmo;
         UpdateAmmoText();
+        weaponPickup = GetComponent<WeaponPickup>();
+        gunAudioSource = GetComponentInChildren<AudioSource>();
+        muzzleFlash = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
     {
-        UpdateAmmoText();
+        //UpdateAmmoText();
 
         /*if (menuInterface.isPaused)
         {
             return;
         }*/
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0 && !isReloading)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             if (currentAmmo <= 0)
@@ -66,7 +69,7 @@ public class Gun : MonoBehaviour
     {
         currentAmmo--;
         muzzleFlash.Play();
-        gunAudioSource.Play();
+        if(gunAudioSource)gunAudioSource.Play();
         RaycastHit hit;
         if (Physics.Raycast(gunObject.transform.position, gunObject.transform.forward, out hit, range))
         {
@@ -80,7 +83,7 @@ public class Gun : MonoBehaviour
 
     public void UpdateAmmoText()
     {
-        ammoText.text = $"{currentAmmo} | {reserveAmmo}";
+        //ammoText.text = $"{currentAmmo} | {reserveAmmo}";
     }
 
     private void OnDrawGizmos()

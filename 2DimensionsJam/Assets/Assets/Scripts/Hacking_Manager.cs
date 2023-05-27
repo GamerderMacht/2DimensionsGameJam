@@ -9,6 +9,7 @@ public class Hacking_Manager : MonoBehaviour
 {
     public List<HackingPromptSO> hackingPrompts;
     public TextMeshProUGUI hackingPromptText;
+    public TextMeshProUGUI amountWrongText;
 
     public Button[] buttonAnswers;
     public Slider slider;

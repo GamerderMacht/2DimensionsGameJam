@@ -70,7 +70,8 @@ PrefabInstance:
     - target: {fileID: 6930634024606278669, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
         type: 3}
       propertyPath: m_Name
-      value: Jammo_Black_Happy
+      value: Jammo_Black_Happy Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 794388607, guid: 40ce93f620bf5dc44ab6a057b5a58ee8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 40ce93f620bf5dc44ab6a057b5a58ee8, type: 3}

@@ -17,8 +17,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Server
-  - Robot
+  - Base
+  - Player
   - PostProcessing
   - 
   - 

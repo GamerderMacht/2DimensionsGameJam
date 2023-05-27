@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2065475464709094256, guid: 27262f2c7822ee34f86e87974ddc78e8,
         type: 3}
       propertyPath: m_Name
-      value: Jammo_Green_Dead
+      value: Jammo_Green_Dead Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3094345837524011363, guid: 27262f2c7822ee34f86e87974ddc78e8,
         type: 3}
@@ -72,5 +72,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5c0dc78f40c06c4e9356a3218da955b, type: 2}
+    - target: {fileID: 5814843882247523067, guid: 27262f2c7822ee34f86e87974ddc78e8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814843882247523067, guid: 27262f2c7822ee34f86e87974ddc78e8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814843882247523067, guid: 27262f2c7822ee34f86e87974ddc78e8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27262f2c7822ee34f86e87974ddc78e8, type: 3}

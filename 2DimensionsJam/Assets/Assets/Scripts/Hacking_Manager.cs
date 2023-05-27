@@ -9,7 +9,7 @@ public class Hacking_Manager : MonoBehaviour
 {
     public List<HackingPromptSO> hackingPrompts;
     public TextMeshProUGUI hackingPromptText;
-    public TextMeshProUGUI amountWrongText;
+
     public Button[] buttonAnswers;
     public Slider slider;
     HackingPromptSO selectedPrompt;
@@ -24,6 +24,7 @@ public class Hacking_Manager : MonoBehaviour
 
     void Start()
     {
+
         audioSource = this.GetComponent<AudioSource>();
         timerScript = FindAnyObjectByType<TimerScript>();
         HackingMiniGame();
@@ -92,6 +93,7 @@ public class Hacking_Manager : MonoBehaviour
             amountWrongText.text = "X";
         }
 
+
         if (gotIncorrect == 2)
         {
             amountWrongText.text = "X X";
@@ -102,6 +104,7 @@ public class Hacking_Manager : MonoBehaviour
             amountWrongText.text = "X X X";
         }
     }
+
     public void ProgressBar()
     {
         slider.value = gotCorrect;
@@ -120,6 +123,9 @@ public class Hacking_Manager : MonoBehaviour
             button.interactable = false;
         }
         Invoke("EnableButtons", nextQuestionDelay);
+
+
+   
     }
 
     public void EnableButtons()

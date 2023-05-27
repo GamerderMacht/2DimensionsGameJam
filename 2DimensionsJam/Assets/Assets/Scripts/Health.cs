@@ -6,6 +6,8 @@ public class Health : MonoBehaviour
 {
     public int currentHealth {get; private set;}
     [SerializeField] private int TotalHealth;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private Transform explosionLocation;
 
     public void TakeDamage(int amount){
         Debug.Log("Object is taking damage");
@@ -16,7 +18,9 @@ public class Health : MonoBehaviour
     }
 
 
+    //only have implemented server so far
     private void Die(){
-        //Will need to implement when I get the chance to
+        Instantiate(explosionPrefab, explosionLocation.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

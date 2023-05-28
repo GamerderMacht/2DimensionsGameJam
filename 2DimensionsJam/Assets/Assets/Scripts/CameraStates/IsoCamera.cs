@@ -34,7 +34,7 @@ private void Update(){
                     Debug.Log(hit.collider.gameObject.name);
                     Debug.Log("The robot has been hit!");
                     hackedRobot = hit.collider.gameObject;
-                    if(hit.collider.GetComponent<NavMeshAgent>())
+                    if(hit.collider.GetComponent<NavMeshAgent>() && hit.collider.GetComponent<Movement_Danny>().enabled == false && hackingCanvas.GetComponent<CanvasGroup>().alpha < 1)
                     {
                         NavMeshAgent enemyAI = hit.collider.GetComponent<NavMeshAgent>();
                         enemyAI.enabled = false;
@@ -67,7 +67,7 @@ private void Update(){
         hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
         hackedRobot.GetComponent<Movement_Danny>().enabled = true;
         //hackedRobot.GetComponent<Movement>().enabled = false;
-        hackedRobot.GetComponent<EnemyAI>().enabled = false;
+        hackedRobot.GetComponentInChildren<EnemyAI>().enabled = false;
     }
 
     private void OnDrawGizmos()

@@ -33,7 +33,7 @@ public class Movement_Danny : MonoBehaviour
     private void Update()
     {
         // Ground Check 
-        isGrounded = Physics.CheckSphere(groundPt.position, 0.5f, groundLayer);
+        //isGrounded = Physics.CheckSphere(groundPt.position, 0.5f, groundLayer);
         moveVertical = Input.GetAxis("Vertical"); //* moveSpeed;
         moveHorizontal = Input.GetAxis("Horizontal"); //* moveSpeed;
 

@@ -17,6 +17,8 @@ public class PauseMenu : MonoBehaviour
         if(Input.GetKey(KeyCode.Escape))
         {
             GamePaused();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
     void GamePaused()
@@ -33,6 +35,8 @@ public class PauseMenu : MonoBehaviour
         pausedCanvas.interactable = false;
         pausedCanvas.blocksRaycasts = false;
         tutoricalCanvas.alpha = 0f;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         Time.timeScale = 1;
 
     }

@@ -10,6 +10,9 @@ TagManager:
   - ArmSlot
   - Pistol
   - Enemy
+  - Orientation
+  - PlayerObject
+  - IsoCam
   layers:
   - Default
   - TransparentFX

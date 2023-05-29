@@ -8,6 +8,7 @@ public class IsoCamera : MonoBehaviour
 {
     [SerializeField] private float maxDistance;
     [SerializeField] private Camera cam;
+    public GameObject camTwo;
     [SerializeField] private GameObject hackingCanvas;
     [SerializeField] private GameObject hackingManager;
     private GameObject currentHackedRobot;
@@ -69,10 +70,12 @@ private void Update(){
 
     public void SwitchPerspectives(){
         currentHackedRobot = hackedRobot;
-        hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
+        //hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
         hackedRobot.GetComponent<Movement_Danny>().enabled = true;
         //hackedRobot.GetComponent<Movement>().enabled = false;
         hackedRobot.GetComponentInChildren<EnemyAI>().enabled = false;
+        camTwo.SetActive(true);
+        gameObject.SetActive(false);
         
 
     }

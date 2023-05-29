@@ -9,6 +9,7 @@ public class Hacking_Manager : MonoBehaviour
 {
     [SerializeField] GameObject hackingCanvas;
     public List<HackingPromptSO> hackingPrompts;
+    public List<HackingPromptSO> selectedPrompts;
     public TextMeshProUGUI hackingPromptText;
     public TextMeshProUGUI amountWrongText;
 
@@ -48,6 +49,8 @@ public class Hacking_Manager : MonoBehaviour
         
         // Select a random hacking prompt from the list
         selectedPrompt = hackingPrompts[Random.Range(0, hackingPrompts.Count)];
+        hackingPrompts.Remove(selectedPrompt);
+        selectedPrompts.Add(selectedPrompt);
 
         // Assign the hacking prompt text to the UI text component
         hackingPromptText.text = selectedPrompt.hackingPrompt;
@@ -122,6 +125,7 @@ public class Hacking_Manager : MonoBehaviour
         hackingPromptText.text = "HACK FAILED HACK FAILED HACK FAILED HACK FAILED HACK FAILED";
         audioSource.PlayOneShot(wrongClip);
         CloseEndingHack();
+        AddSelectedPromptsBack();
         
         
 
@@ -159,9 +163,19 @@ public class Hacking_Manager : MonoBehaviour
             gotCorrect = 0;
             //Insert Function() that transitions player from hacking to robot
             hackingPromptText.text = "HACK INIZIALIZED! OVERTAKING BODY! HACK INIZIALIZED! OVERTAKING BODY!";
+            AddSelectedPromptsBack();
             
             Invoke("CloseSuccessedHacking", 2f);
         }
+    }
+
+    public void AddSelectedPromptsBack()
+    {
+        foreach (HackingPromptSO prompt in selectedPrompts)
+        {
+            hackingPrompts.Add(prompt);
+        }
+        selectedPrompts.Clear();
     }
     public void DisableButtonsForSeconds()
     {

@@ -10,42 +10,60 @@ public class Movement_Danny : MonoBehaviour
     [SerializeField] float moveSpeed;
     float moveVertical;
     float moveHorizontal;
+    [SerializeField] bool canMove = true;
 
     [SerializeField] float newGravity;
-    //[SerializeField] float gravityMultiplier = 2f;
 
     [Header("Ground Reference")]
     public LayerMask groundLayer;
-    public Transform groundPt;
+    public GameObject groundPt;
     public bool isGrounded;
     [SerializeField] private float rotationSpeed;
 
-    [SerializeField] private Transform cam;
-    private bool canMove = true;
-
+    [Header("Camera References")]
+    public GameObject cam;
+    public GameObject thirdCam;
+    public GameObject isoCam;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponentInParent<Rigidbody>();
+
+        groundPt = GameObject.Find("GroundPt");
+
+        cam = Camera.main.gameObject;
+        thirdCam = GameObject.Find("Camera_Types");
+        isoCam = GameObject.Find("IsoMetric");
     }
 
     private void Update()
     {
         // Ground Check 
-        //isGrounded = Physics.CheckSphere(groundPt.position, 0.5f, groundLayer);
-        moveVertical = Input.GetAxis("Vertical"); //* moveSpeed;
-        moveHorizontal = Input.GetAxis("Horizontal"); //* moveSpeed;
-
-        if(moveHorizontal != 0 || moveVertical != 0){
+        isGrounded = Physics.CheckSphere(groundPt.transform.position, 0.5f, groundLayer);
+        moveVertical = Input.GetAxis("Vertical") * moveSpeed;
+        moveHorizontal = Input.GetAxis("Horizontal") * moveSpeed;
+        canMove = true;
+        /*if(moveHorizontal == 0 || moveVertical == 0)
+        {
             canMove = true;
-        }else{
-            canMove = false;
         }
+        else
+        {
+            canMove = false;
+        }*/
 
         if (Input.GetKeyDown(KeyCode.G))
         {
             anim.SetTrigger("Melee");
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Destroy(gameObject, 3f);
+            thirdCam.SetActive(false);
+            isoCam.SetActive(true);
+            // Particle System
         }
 
     }
@@ -54,16 +72,21 @@ public class Movement_Danny : MonoBehaviour
     {
 
         //Danny's Script=>
-        if(canMove){
+        if(canMove)
+        {
             anim.SetFloat("Blend", 0.5f);
-            Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
-            rb.position += movement * moveSpeed * Time.deltaTime;
-            //just implement proper rotation and done
-        /*}else{
-            anim.SetBool("Run", false);
-        }
-        else{
-           anim.SetBool("Run", false); */
+            //Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
+            rb.velocity = (cam.transform.forward * moveVertical) + (cam.transform.right * moveHorizontal);
+            if (moveVertical != 0)
+            {
+                transform.rotation = cam.transform.rotation;
+                Debug.Log("I turn");
+            }
+            else
+            {
+                transform.rotation = Quaternion.identity;
+                Debug.Log("0");
+            }
         }
         
 

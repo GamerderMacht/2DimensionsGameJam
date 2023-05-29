@@ -9,6 +9,8 @@ public class WaveConfigSO : ScriptableObject
 
     [SerializeField] float spawnTime = 1f;
 
+    [SerializeField] List<GameObject> weaponPrefabs;
+
     public int GetEnemyCount()
     {
         return enemyPrefabs.Count;
@@ -22,5 +24,16 @@ public class WaveConfigSO : ScriptableObject
     public float GetSpawnTime()
     {
         return spawnTime;
+    }
+
+    // Weapon 
+    public int GetWeaponCount()
+    {
+        return weaponPrefabs.Count;
+    }
+
+    public GameObject GetWeaponPrefab(int index)
+    {
+        return weaponPrefabs[index];
     }
 }

@@ -14,18 +14,10 @@ public class Gun : MonoBehaviour
     [SerializeField] AudioSource gunAudioSource;
     [SerializeField] ParticleSystem muzzleFlash;
 
-    [Header("Reload Info")]
-    [SerializeField] float reloadTime = 1f;
-    [SerializeField] bool isReloading = false;
-
     [Header("Ammo Info")]
     [SerializeField] int currentAmmo = 6;
     [SerializeField] int maxClipAmmo = 6;
     [SerializeField] int reserveAmmo = 0;
-
-    [Header("Ammo UI")]
-    [SerializeField] TextMeshProUGUI ammoText;
-
 
     [Header("Gun Reference")]
     public GameObject gunObject;
@@ -37,7 +29,6 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         currentAmmo = maxClipAmmo;
-        UpdateAmmoText();
         weaponPickup = GetComponent<WeaponPickup>();
         gunAudioSource = GetComponentInChildren<AudioSource>();
         muzzleFlash = GetComponentInChildren<ParticleSystem>();
@@ -45,13 +36,6 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        //UpdateAmmoText();
-
-        /*if (menuInterface.isPaused)
-        {
-            return;
-        }*/
-
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
@@ -79,11 +63,6 @@ public class Gun : MonoBehaviour
                 aitarget.TakingDamage(damage);
             }*/
         }
-    }
-
-    public void UpdateAmmoText()
-    {
-        //ammoText.text = $"{currentAmmo} | {reserveAmmo}";
     }
 
     private void OnDrawGizmos()

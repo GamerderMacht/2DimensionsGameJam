@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.987904, z: -6.914903}
+  m_FollowOffset: {x: 0, y: 1.250517, z: -7.405007}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -5965,7 +5965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.987904, z: -6.914903}
+  m_FollowOffset: {x: 0, y: 1.250517, z: -7.405007}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -13066,8 +13066,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388537707}
-  m_LocalRotation: {x: 0.39571285, y: -0.43759227, z: 0.22047059, w: 0.7767348}
-  m_LocalPosition: {x: 12.824829, y: 25.228561, z: 4.8118362}
+  m_LocalRotation: {x: 0.54656893, y: -0.22199464, z: 0.15038094, w: 0.79332614}
+  m_LocalPosition: {x: 15.329147, y: 54.49344, z: 1.2155304}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14322,37 +14322,37 @@ PrefabInstance:
     - target: {fileID: 5771494271880022659, guid: f8b74921c21a66b45b327e3ca4f63967,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.824829
+      value: 15.329147
       objectReference: {fileID: 0}
     - target: {fileID: 5771494271880022659, guid: f8b74921c21a66b45b327e3ca4f63967,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.228561
+      value: 54.49344
       objectReference: {fileID: 0}
     - target: {fileID: 5771494271880022659, guid: f8b74921c21a66b45b327e3ca4f63967,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.8118362
+      value: 1.2155304
       objectReference: {fileID: 0}
     - target: {fileID: 5771494271880022659, guid: f8b74921c21a66b45b327e3ca4f63967,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7767348
+      value: 0.79332614
       objectReference: {fileID: 0}
     - target: {fileID: 5771494271880022659, guid: f8b74921c21a66b45b327e3ca4f63967,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.39571285
+      value: 0.54656893
       objectReference: {fileID: 0}
     - target: {fileID: 5771494271880022659, guid: f8b74921c21a66b45b327e3ca4f63967,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.43759227
+      value: -0.22199464
       objectReference: {fileID: 0}
     - target: {fileID: 5771494271880022659, guid: f8b74921c21a66b45b327e3ca4f63967,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.22047059
+      value: 0.15038094
       objectReference: {fileID: 0}
     - target: {fileID: 5771494271880022659, guid: f8b74921c21a66b45b327e3ca4f63967,
         type: 3}
@@ -16419,7 +16419,6 @@ MonoBehaviour:
   TotalHealth: 100
   explosionPrefab: {fileID: 5082932152016985933, guid: 7733c316e0d4c87419b595a5a2393cbf,
     type: 3}
-  explosionLocation: {fileID: 1716786033}
   hpSlider: {fileID: 879714524}
   loseScreenAnimator: {fileID: 56096230}
 --- !u!54 &1716786035
@@ -18147,7 +18146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.987904, z: -6.914903}
+  m_FollowOffset: {x: 0, y: 1.250517, z: -7.405007}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1

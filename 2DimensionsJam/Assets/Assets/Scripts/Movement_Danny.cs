@@ -63,9 +63,11 @@ public class Movement_Danny : MonoBehaviour
         if (Input.GetKey(KeyCode.X))
         {
             Debug.Log("X was pressed");
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
             thirdCam.SetActive(false);
-            //Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            transform.GetChild(1).GetComponent<SphereCollider>().enabled = true;
+            transform.GetChild(1).GetComponent<weapon_new>().enabled = true;
             FindObjectOfType<Hacking_Manager>().TurnIsoCameraOn();
 
             //isoCam.SetActive(true);

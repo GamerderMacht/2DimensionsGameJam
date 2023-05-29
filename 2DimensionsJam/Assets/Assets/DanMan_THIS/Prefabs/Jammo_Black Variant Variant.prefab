@@ -14,6 +14,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371962712248473657, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
         type: 3}
+      propertyPath: m_Height
+      value: 1.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 371962712248473657, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 371962712248473657, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
+        type: 3}
       propertyPath: m_Acceleration
       value: 2
       objectReference: {fileID: 0}
@@ -27,6 +37,11 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 371962712248473657, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6230122278134371870, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
         type: 3}
       propertyPath: m_RootOrder
@@ -35,17 +50,17 @@ PrefabInstance:
     - target: {fileID: 6230122278134371870, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.35
+      value: 26.484287
       objectReference: {fileID: 0}
     - target: {fileID: 6230122278134371870, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.09999895
       objectReference: {fileID: 0}
     - target: {fileID: 6230122278134371870, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.45
+      value: -3.5262647
       objectReference: {fileID: 0}
     - target: {fileID: 6230122278134371870, guid: 40ce93f620bf5dc44ab6a057b5a58ee8,
         type: 3}
@@ -87,5 +102,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jammo_Black Variant Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 794388605, guid: 40ce93f620bf5dc44ab6a057b5a58ee8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 40ce93f620bf5dc44ab6a057b5a58ee8, type: 3}

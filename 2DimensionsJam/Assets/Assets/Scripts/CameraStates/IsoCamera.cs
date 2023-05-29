@@ -37,8 +37,8 @@ private void Update(){
                 if(hit.collider.gameObject.layer == 8){
                     Debug.Log(hit.collider.gameObject.name);
                     Debug.Log("The robot has been hit!");
-                    if(hackingCanvas.GetComponent<CanvasGroup>().alpha >= 0.5f)return;
                     hackedRobot = hit.collider.gameObject;
+                    if(hackingCanvas.GetComponent<CanvasGroup>().alpha >= 0.5f)return;
                     if(hit.collider.GetComponent<NavMeshAgent>() && hit.collider.GetComponent<Movement_Danny>().enabled == false && hackingCanvas.GetComponent<CanvasGroup>().alpha < 1)
                     {
                         NavMeshAgent enemyAI = hit.collider.GetComponent<NavMeshAgent>();
@@ -76,8 +76,11 @@ private void Update(){
         hackedRobot.GetComponentInChildren<EnemyAI>().enabled = false;
         camTwo.SetActive(true);
         gameObject.SetActive(false);
-        
+    
+    }
 
+    public GameObject CorrectRobot(){
+        return hackedRobot;
     }
     public void DestroyOldRobot()
     {

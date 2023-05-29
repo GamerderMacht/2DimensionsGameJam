@@ -36,6 +36,7 @@ public class ThirdPersonCam : MonoBehaviour
 
     private void Update()
     {
+            player = FindObjectOfType<IsoCamera>().CorrectRobot();
         // Camera Orientation
         Vector3 viewDirection = player.transform.position - new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
         orientation.transform.forward = viewDirection.normalized;
@@ -57,4 +58,7 @@ public class ThirdPersonCam : MonoBehaviour
             playerObject.transform.forward = viewCombatDirection.normalized;
         }
     }
+
+
+    
 }

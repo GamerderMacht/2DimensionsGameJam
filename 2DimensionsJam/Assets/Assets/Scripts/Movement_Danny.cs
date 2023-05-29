@@ -24,6 +24,7 @@ public class Movement_Danny : MonoBehaviour
     public GameObject cam;
     public GameObject thirdCam;
     public GameObject isoCam;
+    [SerializeField] private GameObject explosionPrefab;
 
     private void Start()
     {
@@ -34,7 +35,8 @@ public class Movement_Danny : MonoBehaviour
 
         cam = Camera.main.gameObject;
         thirdCam = GameObject.Find("Camera_Types");
-        isoCam = GameObject.FindGameObjectWithTag("IsoCam");
+        isoCam = GameObject.Find("IsoMetric");
+        Debug.Log(isoCam + " HERERERERERE");
     }
 
     private void Update()
@@ -60,9 +62,15 @@ public class Movement_Danny : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X))
         {
-            Destroy(gameObject, 3f);
+            Debug.Log("X was pressed");
+            Destroy(gameObject);
             thirdCam.SetActive(false);
-            isoCam.SetActive(true);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            transform.GetChild(1).GetComponent<SphereCollider>().enabled = true;
+            transform.GetChild(1).GetComponent<weapon_new>().enabled = true;
+            FindObjectOfType<Hacking_Manager>().TurnIsoCameraOn();
+
+            //isoCam.SetActive(true);
             // Particle System
         }
 

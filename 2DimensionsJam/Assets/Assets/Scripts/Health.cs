@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
      public int currentHealth;
     [SerializeField] public int TotalHealth = 100;
     [SerializeField] private GameObject explosionPrefab;
-    [SerializeField] private Transform explosionLocation;
+    //[SerializeField] private Transform explosionLocation;
 
     public Slider hpSlider;
 
@@ -28,12 +28,14 @@ public class Health : MonoBehaviour
 
     public void SetMaxHealth(int health)
     {
+        if(hpSlider == null) return;
         hpSlider.maxValue = health;
         hpSlider.value = health;
     }
 
     public void SetHealth(int health)
     {
+        if(hpSlider == null) return;
         hpSlider.value = health;
         currentHealth = health;
     }
@@ -50,7 +52,7 @@ public class Health : MonoBehaviour
 
     //only have implemented server so far
     private void Die(){
-        Instantiate(explosionPrefab, explosionLocation.position, Quaternion.identity);
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
         if (this.gameObject.layer == 7) loseScreenAnimator.SetTrigger("PlayerLost");
     }

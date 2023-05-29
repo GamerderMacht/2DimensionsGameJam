@@ -34,7 +34,7 @@ public class Movement_Danny : MonoBehaviour
 
         cam = Camera.main.gameObject;
         thirdCam = GameObject.Find("Camera_Types");
-        isoCam = GameObject.Find("IsoMetric");
+        isoCam = GameObject.FindGameObjectWithTag("IsoCam");
     }
 
     private void Update()

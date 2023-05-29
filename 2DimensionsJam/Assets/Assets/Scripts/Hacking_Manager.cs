@@ -194,4 +194,10 @@ public class Hacking_Manager : MonoBehaviour
         }
     }
 
+
+    //This method below is pruely for a null refrence error
+    public void TurnIsoCameraOn(){
+        isocam.gameObject.SetActive(true);
+    }
+
 }

@@ -16,6 +16,6 @@ MonoBehaviour:
   answers:
   - Mines
   - A wand
-  - Expolosives
+  - Explosives
   - Some stick
   correctAnswerIndex: 1

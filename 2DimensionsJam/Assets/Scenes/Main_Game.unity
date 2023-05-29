@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2103966894}
-  m_IndirectSpecularColor: {r: 0.00066008605, g: 0.0003369588, b: 0.000044064916,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.00066008867, g: 0.0003369591, b: 0.00004406536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3328,6 +3327,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5351387053988098625, guid: c7267ec88c006b44d8cf814db703a38d,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5351387053988098626, guid: c7267ec88c006b44d8cf814db703a38d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3438,6 +3442,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5351387054003086307, guid: c7267ec88c006b44d8cf814db703a38d,
+        type: 3}
+      propertyPath: m_text
+      value: X - Self Destruct (if you are a Robot)
+      objectReference: {fileID: 0}
     - target: {fileID: 5351387054003086308, guid: c7267ec88c006b44d8cf814db703a38d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3486,6 +3495,11 @@ PrefabInstance:
     - target: {fileID: 5351387054351392826, guid: c7267ec88c006b44d8cf814db703a38d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351387055072671823, guid: c7267ec88c006b44d8cf814db703a38d,
+        type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5378,6 +5392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnOptionButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613726453914613751, guid: 3b0dedc4263de1545a81af509876be23,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4613726454106811689, guid: 3b0dedc4263de1545a81af509876be23,
         type: 3}
@@ -16813,6 +16832,21 @@ PrefabInstance:
         hack the robots and take
         control over them'
       objectReference: {fileID: 0}
+    - target: {fileID: 1390114321467792786, guid: d42b675ddc35e964c9872a59eef01b13,
+        type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390114321467792786, guid: d42b675ddc35e964c9872a59eef01b13,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390114321863149724, guid: d42b675ddc35e964c9872a59eef01b13,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1390114322206919538, guid: d42b675ddc35e964c9872a59eef01b13,
         type: 3}
       propertyPath: m_Interactable
@@ -16931,6 +16965,11 @@ PrefabInstance:
     - target: {fileID: 1390114322347116414, guid: d42b675ddc35e964c9872a59eef01b13,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390114322439439342, guid: d42b675ddc35e964c9872a59eef01b13,
+        type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

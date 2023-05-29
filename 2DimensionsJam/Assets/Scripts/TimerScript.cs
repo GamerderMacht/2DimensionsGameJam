@@ -6,6 +6,7 @@ using TMPro;
 public class TimerScript : MonoBehaviour
 {
     Hacking_Manager hackingManager;
+    public CanvasGroup hackingCanvasGroup;
     public TMP_Text timerText;
     public float timerCount = 10;
     public bool answeringPhase;
@@ -21,7 +22,7 @@ public class TimerScript : MonoBehaviour
     }
     void TimerCountdown()
     {
-        if (answeringPhase)
+        if (answeringPhase && hackingCanvasGroup.alpha >= 0.5f)
         {
             timerCount -= Time.deltaTime;
 

@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 723301774fad3c1468af9c54be856e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 2.3
+  attackDistance: 2.5
 --- !u!135 &174523848930659719
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d3f0b288bf435478d5fff07b8daee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 5
 --- !u!65 &8018715181990939404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4749,6 +4749,8 @@ GameObject:
   - component: {fileID: 560226253126516019}
   - component: {fileID: 5596164678889974463}
   - component: {fileID: -1839275077610500441}
+  - component: {fileID: -5048372419100369812}
+  - component: {fileID: 4692199154503330797}
   m_Layer: 8
   m_Name: Original_Jammo
   m_TagString: Player
@@ -4893,6 +4895,63 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-5048372419100369812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116151672762679559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4692199154503330797}
+          m_TargetAssemblyTypeName: OutlineJammo, Assembly-CSharp
+          m_MethodName: OutlineJammoRobot
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4692199154503330797}
+          m_TargetAssemblyTypeName: OutlineJammo, Assembly-CSharp
+          m_MethodName: OutlineJammoRobotNotAnymore
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &4692199154503330797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116151672762679559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42ab0a35fa49c4428c08fd5658e99dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7131468673843950946
 GameObject:
   m_ObjectHideFlags: 0

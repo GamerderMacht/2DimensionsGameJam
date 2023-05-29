@@ -1,20 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int currentHealth {get; private set;}
-    [SerializeField] private int TotalHealth;
+     public int currentHealth;
+    [SerializeField] public int TotalHealth = 100;
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private Transform explosionLocation;
 
+    public Slider hpSlider;
+
+    private void Start() {
+        currentHealth = TotalHealth;
+        SetMaxHealth(TotalHealth);
+    }
     public void TakeDamage(int amount){
-        Debug.Log("Object is taking damage");
         currentHealth -= amount;
+        SetHealth(currentHealth);
         if(currentHealth <= 0){
             Die();
         }
+    }
+
+    public void SetMaxHealth(int health)
+    {
+        hpSlider.maxValue = health;
+        hpSlider.value = health;
+    }
+
+    public void SetHealth(int health)
+    {
+        hpSlider.value = health;
+        currentHealth = health;
+    }
+
+    
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            TakeDamage(5);
+        }
+        
     }
 
 

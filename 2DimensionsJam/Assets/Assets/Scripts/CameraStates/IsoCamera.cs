@@ -10,6 +10,9 @@ public class IsoCamera : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject hackingCanvas;
     [SerializeField] private GameObject hackingManager;
+    private GameObject currentHackedRobot;
+    private GameObject oldHackedRobot;
+
     private static GameObject hackedRobot;
     private Animator anim;
     private void Start() {
@@ -33,6 +36,7 @@ private void Update(){
                 if(hit.collider.gameObject.layer == 8){
                     Debug.Log(hit.collider.gameObject.name);
                     Debug.Log("The robot has been hit!");
+                    if(hackingCanvas.GetComponent<CanvasGroup>().alpha >= 0.5f)return;
                     hackedRobot = hit.collider.gameObject;
                     if(hit.collider.GetComponent<NavMeshAgent>() && hit.collider.GetComponent<Movement_Danny>().enabled == false && hackingCanvas.GetComponent<CanvasGroup>().alpha < 1)
                     {
@@ -63,11 +67,22 @@ private void Update(){
     }
 }
 
-    public static void SwitchPerspectives(){
+    public void SwitchPerspectives(){
+        currentHackedRobot = hackedRobot;
         hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
         hackedRobot.GetComponent<Movement_Danny>().enabled = true;
         //hackedRobot.GetComponent<Movement>().enabled = false;
         hackedRobot.GetComponentInChildren<EnemyAI>().enabled = false;
+        
+
+    }
+    public void DestroyOldRobot()
+    {
+        
+        if(oldHackedRobot = null) return;
+        Debug.Log("old robot is:" +  oldHackedRobot.name);
+        oldHackedRobot = currentHackedRobot;
+        Destroy(oldHackedRobot);
     }
 
     private void OnDrawGizmos()

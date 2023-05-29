@@ -12,6 +12,8 @@ public class Hacking_Manager : MonoBehaviour
     public TextMeshProUGUI hackingPromptText;
     public TextMeshProUGUI amountWrongText;
 
+    public GameObject mainCanvas;
+
     public Button[] buttonAnswers;
     public Slider slider;
     HackingPromptSO selectedPrompt;
@@ -19,21 +21,23 @@ public class Hacking_Manager : MonoBehaviour
     AudioSource audioSource;
     public AudioClip wrongClip;
     public AudioClip rightClip;
+    [SerializeField] GameObject currentRobot;
     int answerIndex;
     public int nextQuestionDelay = 2;
     int gotCorrect;
     int gotIncorrect;
+    IsoCamera isocam;
 
     void Start()
     {
-
+        isocam = GameObject.Find("IsoMetric").GetComponent<IsoCamera>();
         audioSource = this.GetComponent<AudioSource>();
         timerScript = FindAnyObjectByType<TimerScript>();
         
     }
     void Update() 
     {
-        
+        if (Input.GetKeyDown(KeyCode.L))PlayerLost();
     }
 
     public void HackingMiniGame()
@@ -68,6 +72,7 @@ public class Hacking_Manager : MonoBehaviour
         {
             AnswerWrong();
         }
+        DisableButtonsForSeconds();
 
     }
 
@@ -101,16 +106,23 @@ public class Hacking_Manager : MonoBehaviour
             amountWrongText.text = "X X";
         }
         
-        if (gotIncorrect == 3)
+        if (gotIncorrect >= 3)
         {
             amountWrongText.text = "X X X";            
             CloseFailedHacking();
         }
     }
+    void PlayerLost()
+    {
+        
+        mainCanvas.GetComponent<Animator>().SetTrigger("PlayerLost");
+    }
     public void CloseFailedHacking()
     {
         hackingPromptText.text = "HACK FAILED HACK FAILED HACK FAILED HACK FAILED HACK FAILED";
         audioSource.PlayOneShot(wrongClip);
+        CloseEndingHack();
+        
         
 
 
@@ -119,10 +131,22 @@ public class Hacking_Manager : MonoBehaviour
     {
         
         //Insert successful hacking (overtaking body)
-        hackingCanvas.GetComponent<CanvasGroup>().alpha = 0;
-        hackingCanvas.GetComponent<CanvasGroup>().interactable = false;
-        hackingCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
-        IsoCamera.SwitchPerspectives();
+        CloseEndingHack();
+        isocam.SwitchPerspectives();
+        //if have already one robot
+        Invoke("DelayDestruction", 2f);
+    }
+
+    private void DelayDestruction()
+    {
+        isocam.DestroyOldRobot();
+    }
+    void CloseEndingHack()
+    {
+        var hackingCanvasGroup = hackingCanvas.GetComponent<CanvasGroup>();
+        hackingCanvasGroup.alpha = 0;
+        hackingCanvasGroup.interactable = false;
+        hackingCanvasGroup.blocksRaycasts = false;
     }
 
     public void ProgressBar()

@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 2345158862184069837, guid: 1a3ac69a3afe50e40b05f5cd17813f5c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3847198
+      value: 0.94218063
       objectReference: {fileID: 0}
     - target: {fileID: 2345158862184069837, guid: 1a3ac69a3afe50e40b05f5cd17813f5c,
         type: 3}
@@ -196,6 +196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328011672257259710, guid: 1a3ac69a3afe50e40b05f5cd17813f5c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a3ac69a3afe50e40b05f5cd17813f5c, type: 3}
@@ -1842,7 +1847,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167329526}
-  m_LocalRotation: {x: 0.0076511786, y: 0.73921466, z: -0.67337406, w: 0.008399289}
+  m_LocalRotation: {x: 0.0076511214, y: 0.73921466, z: -0.67337406, w: 0.008399227}
   m_LocalPosition: {x: -4.9, y: 5.12, z: 11.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5643,7 +5648,7 @@ PrefabInstance:
     - target: {fileID: 7990728255804042102, guid: 27cf10f589fa37a46b1f7505c85bc67b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3845406
+      value: 0.942
       objectReference: {fileID: 0}
     - target: {fileID: 7990728255804042102, guid: 27cf10f589fa37a46b1f7505c85bc67b,
         type: 3}
@@ -5684,6 +5689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 19.055
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027665743732861176, guid: 27cf10f589fa37a46b1f7505c85bc67b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27cf10f589fa37a46b1f7505c85bc67b, type: 3}
@@ -16016,6 +16026,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5373207186842854275, guid: 93b8561e005c2e64e9f8a081d1154267,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93b8561e005c2e64e9f8a081d1154267, type: 3}
 --- !u!4 &1381752757 stripped
@@ -18078,10 +18093,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996679412}
     m_Modifications:
+    - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692199154503330797, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6096466411612582676, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
       propertyPath: m_RootOrder
       value: 76
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096466411612582676, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096466411612582676, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096466411612582676, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6096466411612582676, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
@@ -22286,6 +22326,11 @@ PrefabInstance:
     - target: {fileID: 687186992923384095, guid: 15ffad25c9e9b5d47911cfcee8376173,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693180295006895593, guid: 15ffad25c9e9b5d47911cfcee8376173,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

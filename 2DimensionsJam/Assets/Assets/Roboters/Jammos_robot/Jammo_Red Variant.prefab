@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6096466411612582676, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
       propertyPath: m_RootOrder
@@ -66,6 +86,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Jammo_Red Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116151672762679559, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64580a4b9b29d084f99a073f10844524, type: 3}

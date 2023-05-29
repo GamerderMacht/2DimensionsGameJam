@@ -6,7 +6,7 @@ using TMPro;
 public class Gun : MonoBehaviour
 {
     [Header("Gun Info")]
-    public float damage = 50f;
+    public int damage = 10;
     [SerializeField] float range = 25f;
     [SerializeField] float fireRate = 1f;
     [SerializeField] float nextTimeToFire = 0.5f;
@@ -57,11 +57,11 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(gunObject.transform.position, gunObject.transform.forward, out hit, range))
         {
-            /*AI_Health aitarget = hit.transform.GetComponent<AI_Health>();
+            Health aitarget = hit.transform.GetComponent<Health>();
             if (aitarget != null)
             {
-                aitarget.TakingDamage(damage);
-            }*/
+                aitarget.TakeDamage(damage);
+            }
         }
     }
 

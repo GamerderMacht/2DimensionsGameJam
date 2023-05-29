@@ -79,7 +79,7 @@ private void Update(){
     public void DestroyOldRobot()
     {
         
-        if(oldHackedRobot = null) return;
+        if(oldHackedRobot == null) return;
         Debug.Log("old robot is:" +  oldHackedRobot.name);
         oldHackedRobot = currentHackedRobot;
         Destroy(oldHackedRobot);

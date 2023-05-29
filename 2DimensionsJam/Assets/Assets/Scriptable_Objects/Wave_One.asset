@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 4289336930404282571, guid: 684cb2bbb87ea99469f3dd34754e15bb, type: 3}
   - {fileID: 8871693084907215264, guid: 1b7a41805f76c714eab8e0e46cc57103, type: 3}
   - {fileID: 8035988914730475496, guid: 04b8ab524e75eab4b827e19dd3067181, type: 3}
-  spawnTime: 0.5
+  spawnTime: 2
   weaponPrefabs:
   - {fileID: 198915127947805605, guid: 15ffad25c9e9b5d47911cfcee8376173, type: 3}
   - {fileID: 7327098962623607244, guid: 27cf10f589fa37a46b1f7505c85bc67b, type: 3}

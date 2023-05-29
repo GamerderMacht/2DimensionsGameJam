@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2065475464709094256, guid: 27262f2c7822ee34f86e87974ddc78e8,
         type: 3}
       propertyPath: m_Name
-      value: Jammo_Green_Happy
+      value: Jammo_Green_Happy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3094345837524011363, guid: 27262f2c7822ee34f86e87974ddc78e8,
         type: 3}

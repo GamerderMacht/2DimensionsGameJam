@@ -36,12 +36,8 @@ public class DynamiteWeapon : MonoBehaviour
         {
             if (collider.CompareTag("Enemy"))
             {
-                /*AI_Health aitarget = hit.transform.GetComponent<AI_Health>();
-                if (aitarget != null)
-                {
-                    aitarget.TakingDamage(damage);
-                }*/
-                Destroy(this.gameObject);
+                collider.GetComponent<Health>().TakeDamage(100);
+                Destroy(this.gameObject, 1f);
             }
 
             if (collider.CompareTag("Anything"))

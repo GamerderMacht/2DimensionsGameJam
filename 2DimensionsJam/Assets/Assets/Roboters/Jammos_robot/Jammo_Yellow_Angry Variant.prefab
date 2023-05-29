@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 4289336930404282571, guid: 684cb2bbb87ea99469f3dd34754e15bb,
         type: 3}
       propertyPath: m_Name
-      value: Jammo_Yellow_Angry
+      value: Jammo_Yellow_Angry Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 684cb2bbb87ea99469f3dd34754e15bb, type: 3}

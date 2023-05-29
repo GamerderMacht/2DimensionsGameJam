@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - ArmSlot
   - Pistol
+  - Enemy
   layers:
   - Default
   - TransparentFX

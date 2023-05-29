@@ -16,7 +16,8 @@ public class BatWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Fire1") && weapon.isHolding && Time.time >= nextTimeToSwing)
+        //Debug.Log(weapon.isHolding);
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToSwing)
         {
             // Swing Animation
             Damage();
@@ -31,11 +32,7 @@ public class BatWeapon : MonoBehaviour
         {
             if (collider.CompareTag("Enemy"))
             {
-                /*AI_Health aitarget = hit.transform.GetComponent<AI_Health>();
-                if (aitarget != null)
-                {
-                    aitarget.TakingDamage(damage);
-                }*/
+                collider.GetComponent<Health>().TakeDamage(10);
             }
         }
     }

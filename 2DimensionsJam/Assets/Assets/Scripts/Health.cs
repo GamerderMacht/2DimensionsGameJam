@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
 
     public Slider hpSlider;
 
+    public Animator loseScreenAnimator;
+
     private void Start() {
         currentHealth = TotalHealth;
         SetMaxHealth(TotalHealth);
@@ -50,5 +52,6 @@ public class Health : MonoBehaviour
     private void Die(){
         Instantiate(explosionPrefab, explosionLocation.position, Quaternion.identity);
         Destroy(gameObject);
+        if (this.gameObject.layer == 7) loseScreenAnimator.SetTrigger("PlayerLost");
     }
 }

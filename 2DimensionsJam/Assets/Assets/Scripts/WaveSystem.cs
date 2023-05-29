@@ -24,7 +24,7 @@ public class WaveSystem : MonoBehaviour
     public Transform[] EnemySpawnPoints;
     [SerializeField] List<WaveConfigSO> waveConfigs;
     WaveConfigSO currentWave;
-    public bool canSpawn;
+    public bool canSpawn = true;
 
     private void Start()
     {
@@ -43,7 +43,7 @@ public class WaveSystem : MonoBehaviour
                     var randomEnemySpawnPoint = EnemySpawnPoints[Random.Range(0, EnemySpawnPoints.Length - 1)];
                     GameObject enemy;
                     enemy = Instantiate(currentWave.GetEnemyPrefab(0), randomEnemySpawnPoint.position, Quaternion.identity);
-                    Debug.Log("Enemy Alive");
+                    Debug.Log("Enemy Alive" + " " + i);
                     aliveList.Add(enemy);
                     yield return new WaitForSeconds(wave.GetSpawnTime());
 
@@ -51,16 +51,17 @@ public class WaveSystem : MonoBehaviour
             }
             for (int j = 0; j < currentWave.GetWeaponCount(); j++)
             {
+                Debug.Log("Spawning");
                 var randomWeaponSpawnPoint = WeaponSpawnPoints[Random.Range(0, WeaponSpawnPoints.Length - 1)];
                 GameObject weapon;
                 weapon = Instantiate(currentWave.GetWeaponPrefab(0), randomWeaponSpawnPoint.position, Quaternion.identity);
+                Debug.Log("Weapon in scene and weapon spawn points" + " " + j);
                 weaponList.Add(weapon);
-                Debug.Log("Weapon in scene and weapon spawn points");
             }
-            while (aliveList.Count > 25)
+            /*(while (aliveList.Count > 25)
             {
                 canSpawn = false;
-            }
+            }*/
             while (aliveList.Count > 0)
             {
                 yield return null;

@@ -58,7 +58,7 @@ public class Movement_Danny : MonoBehaviour
             anim.SetTrigger("Melee");
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKey(KeyCode.X))
         {
             Destroy(gameObject, 3f);
             thirdCam.SetActive(false);

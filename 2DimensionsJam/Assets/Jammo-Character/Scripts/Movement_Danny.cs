@@ -24,6 +24,7 @@ public class Movement_Danny : MonoBehaviour
     public GameObject cam;
     public GameObject thirdCam;
     public GameObject isoCam;
+    public float distanceBehindPlayer = 3;
     [SerializeField] private GameObject explosionPrefab;
     float timetoDie = 10;
 
@@ -47,14 +48,7 @@ public class Movement_Danny : MonoBehaviour
         moveVertical = Input.GetAxis("Vertical") * moveSpeed;
         moveHorizontal = Input.GetAxis("Horizontal") * moveSpeed;
         canMove = true;
-        /*if(moveHorizontal == 0 || moveVertical == 0)
-        {
-            canMove = true;
-        }
-        else
-        {
-            canMove = false;
-        }*/
+
 
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -74,35 +68,26 @@ public class Movement_Danny : MonoBehaviour
             transform.GetChild(1).GetComponent<SphereCollider>().enabled = true;
             transform.GetChild(1).GetComponent<weapon_new>().enabled = true;
             FindObjectOfType<Hacking_Manager>().TurnIsoCameraOn();
-
-            //isoCam.SetActive(true);
-            // Particle System
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         
 
     }
 
-    private void FixedUpdate()
+    
+     private void FixedUpdate()
     {
 
         //Danny's Script=>
         if(canMove)
         {
             anim.SetFloat("Blend", 0.5f);
-            //Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
             rb.velocity = (cam.transform.forward * moveVertical) + (cam.transform.right * moveHorizontal);
-            if (moveVertical != 0)
-            {
-                transform.rotation = cam.transform.rotation;
-                Debug.Log("I turn");
-            }
-            else
-            {
-                transform.rotation = Quaternion.identity;
-                Debug.Log("0");
-            }
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         }
-        
+    }
+         
 
      
      //Buggy Script
@@ -121,6 +106,6 @@ public class Movement_Danny : MonoBehaviour
         {
             transform.rotation = Quaternion.identity;
             Debug.Log("0");
-        } */
-    }
+        } 
+    } */
 }

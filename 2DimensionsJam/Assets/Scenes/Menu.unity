@@ -1850,6 +1850,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1410864586249417378, guid: 9d5d7945e48555e4385fd5093eb925e7,
         type: 3}
+      propertyPath: m_text
+      value: '--In Robot State--
+
+        X - Explode'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410864586249417378, guid: 9d5d7945e48555e4385fd5093eb925e7,
+        type: 3}
       propertyPath: m_fontSize
       value: 5
       objectReference: {fileID: 0}

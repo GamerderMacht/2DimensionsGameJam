@@ -25,6 +25,7 @@ public class Movement_Danny : MonoBehaviour
     public GameObject thirdCam;
     public GameObject isoCam;
     [SerializeField] private GameObject explosionPrefab;
+    float timetoDie = 10;
 
     private void Start()
     {
@@ -60,8 +61,12 @@ public class Movement_Danny : MonoBehaviour
             anim.SetTrigger("Melee");
         }
 
-        if (Input.GetKey(KeyCode.X))
+        timetoDie -= Time.deltaTime;
+        Debug.Log(timetoDie);
+
+        if (Input.GetKey(KeyCode.X) || timetoDie <= 0)
         {
+            timetoDie = 10;
             Debug.Log("X was pressed");
             Destroy(gameObject);
             thirdCam.SetActive(false);
@@ -73,6 +78,7 @@ public class Movement_Danny : MonoBehaviour
             //isoCam.SetActive(true);
             // Particle System
         }
+        
 
     }
 

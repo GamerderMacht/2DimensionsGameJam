@@ -63,9 +63,8 @@ public class Movement_Danny : MonoBehaviour
             transform.GetChild(1).GetComponent<SphereCollider>().enabled = true;
             transform.GetChild(1).GetComponent<weapon_new>().enabled = true;
             FindObjectOfType<Hacking_Manager>().TurnIsoCameraOn();
-
-            //isoCam.SetActive(true);
-            // Particle System
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
     }

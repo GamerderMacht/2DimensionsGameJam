@@ -11,6 +11,7 @@ public class Movement_Danny : MonoBehaviour
     float moveVertical;
     float moveHorizontal;
     [SerializeField] bool canMove = true;
+    public bool isPlayer = false; 
 
     [SerializeField] float newGravity;
 
@@ -87,7 +88,14 @@ public class Movement_Danny : MonoBehaviour
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         }
     }
-         
+    
+    private void OnCollisionEnter(Collision other) 
+    {
+        if (isPlayer == true & other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+        }   
+    }
 
      
      //Buggy Script

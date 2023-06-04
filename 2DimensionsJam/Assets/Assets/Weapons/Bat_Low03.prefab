@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1667587616550696296}
   - component: {fileID: 3512949906963218850}
   - component: {fileID: 641130992218106670}
+  - component: {fileID: 2079378530}
   m_Layer: 0
   m_Name: Bat_Low03
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3152657331673063543}
-  m_LocalRotation: {x: -0.10245039, y: 0.7826262, z: -0.13380185, w: 0.5992473}
+  m_LocalRotation: {x: -0.10245049, y: 0.7826271, z: -0.13380417, w: 0.5992455}
   m_LocalPosition: {x: 1.0160283, y: 1.862, z: -1.955}
   m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
@@ -99,6 +100,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -636146437537391009, guid: c5e75f1edd8c4d945988318994c5e9f3, type: 3}
+--- !u!95 &2079378530
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152657331673063543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0949c6061da234e4ea230c5f68eae880, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6075745827639791262
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,4 +198,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionRadius: 0.1
+  weapon: {fileID: 0}
   nextTimeToSwing: 0.5

@@ -72,6 +72,7 @@ private void Update(){
         currentHackedRobot = hackedRobot;
         //hackedRobot.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 100;
         hackedRobot.GetComponent<Movement_Danny>().enabled = true;
+        hackedRobot.GetComponent<Movement_Danny>().isPlayer = true;
         //hackedRobot.GetComponent<Movement>().enabled = false;
         hackedRobot.GetComponentInChildren<EnemyAI>().enabled = false;
         camTwo.SetActive(true);

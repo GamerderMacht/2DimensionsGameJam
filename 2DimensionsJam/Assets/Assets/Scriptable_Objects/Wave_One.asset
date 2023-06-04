@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wave_One
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 6930634024606278669, guid: 40ce93f620bf5dc44ab6a057b5a58ee8, type: 3}
   - {fileID: 4215442272710182221, guid: c287ae9022255e44a978d2f760b74029, type: 3}
+  - {fileID: 6930634024606278669, guid: 40ce93f620bf5dc44ab6a057b5a58ee8, type: 3}
   - {fileID: 2065475464709094256, guid: 27262f2c7822ee34f86e87974ddc78e8, type: 3}
   - {fileID: 1395140165551216998, guid: 48adc78f76b7cce40a1bd2407e7e7e12, type: 3}
   - {fileID: 6304467392836999655, guid: 07f9129625b56c94bb834940c6480b1c, type: 3}

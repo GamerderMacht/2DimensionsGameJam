@@ -27,7 +27,7 @@ public class Movement_Danny : MonoBehaviour
     public GameObject isoCam;
     public float distanceBehindPlayer = 3;
     [SerializeField] private GameObject explosionPrefab;
-    float timetoDie = 10;
+    float timetoDie = 20;
 
     private void Start()
     {
@@ -61,7 +61,7 @@ public class Movement_Danny : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X) || timetoDie <= 0)
         {
-            timetoDie = 10;
+            timetoDie = 20;
             Debug.Log("X was pressed");
             Destroy(gameObject);
             thirdCam.SetActive(false);

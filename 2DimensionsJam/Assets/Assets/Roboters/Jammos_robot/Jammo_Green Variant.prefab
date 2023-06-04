@@ -15,12 +15,12 @@ PrefabInstance:
     - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
       propertyPath: m_Speed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
       propertyPath: m_Acceleration
-      value: 2
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
@@ -62,6 +62,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 840abd1a6c2ead547b537f890c531d76, type: 2}
+    - target: {fileID: 5596164678889974463, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5737216668743909154, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
       propertyPath: m_Speed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
       propertyPath: m_Acceleration
-      value: 2
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 560226253126516019, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
@@ -26,6 +26,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StoppingDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596164678889974463, guid: 64580a4b9b29d084f99a073f10844524,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6096466411612582676, guid: 64580a4b9b29d084f99a073f10844524,
         type: 3}
